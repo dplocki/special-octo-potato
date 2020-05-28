@@ -1,0 +1,8 @@
+name: Are workflow needs to be named proper?
+
+on: push
+
+job:
+  build:
+    steps:
+      - run: echo "hello"
