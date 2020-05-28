@@ -4,5 +4,8 @@ on: push
 
 jobs:
   display_message:
+
+    runs-on: alpine
+
     steps:
       - run: echo "hello"
