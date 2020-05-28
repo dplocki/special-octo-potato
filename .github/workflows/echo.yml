@@ -2,7 +2,7 @@ name: Are workflow needs to be named proper?
 
 on: push
 
-job:
-  build:
+jobs:
+  display_message:
     steps:
       - run: echo "hello"
