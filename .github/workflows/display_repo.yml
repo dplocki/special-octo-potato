@@ -1,0 +1,11 @@
+name: Display the repo files
+
+on: push
+
+jobs:
+  display_message:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: ls -l
