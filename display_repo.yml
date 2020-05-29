@@ -3,7 +3,7 @@ name: Display the repo files
 on: push
 
 jobs:
-  display message:
+  display_message:
 
     runs-on: ubuntu-latest
 
