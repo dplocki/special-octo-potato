@@ -1,0 +1,20 @@
+name: Deploy only on version tag
+
+on:
+  push:
+    tags: releases/[1-9]+.[0-9]+.[0-9]+
+    master: 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "New tag detected!"
+        run: echo "TAG: $GITHUB_REF"
+
+      - name: "Getting sources"
+        uses: actions/checkout@v2
+
+      - name: "Deploy!"
+        run: cat examples/example.txt
