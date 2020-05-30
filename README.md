@@ -10,3 +10,4 @@ This is my balasting field for Github Actions. The place to test workflows, acti
   * You can use docker image
 * The job names must start with a letter or '_' and contain only alphanumeric characters, '-', or '_'
 * You can react on tags without declaring the branch
+* If you have the syntax error in you workflow file, you lose acess to history of prevouse builds for that workflow
