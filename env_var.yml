@@ -3,7 +3,7 @@ name: Show default environment variables
 on: push
 
 jobs:
-  display_message:
+  display_variables:
 
     runs-on: ubuntu-latest
 
