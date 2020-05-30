@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: "New tag detected!"
-        run: echo "TAG:: = $GITHUB_REF"
+        run: echo "TAG = $GITHUB_REF"
 
       - name: "Getting sources"
         uses: actions/checkout@v2
