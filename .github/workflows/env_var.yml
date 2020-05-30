@@ -1,0 +1,26 @@
+name: Show default environment variables
+
+on: push
+
+jobs:
+  display_message:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "CI = '$CI'	Always set to true."
+      - run: echo "HOME = '$HOME' The path to the GitHub home directory used to store user data. For example, /github/home."
+      - run: echo "GITHUB_WORKFLOW = '$GITHUB_WORKFLOW'	The name of the workflow."
+      - run: echo "GITHUB_RUN_ID = '$GITHUB_RUN_ID'	A unique number for each run within a repository. This number does not change if you re-run the workflow run."
+      - run: echo "GITHUB_RUN_NUMBER = '$GITHUB_RUN_NUMBER'	A unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run."
+      - run: echo "GITHUB_ACTION = '$GITHUB_ACTION'	The unique identifier (id) of the action."
+      - run: echo "GITHUB_ACTIONS = '$GITHUB_ACTIONS'	Always set to true when GitHub Actions is running the workflow. You can use this variable to differentiate when tests are being run locally or by GitHub Actions."
+      - run: echo "GITHUB_ACTOR = '$GITHUB_ACTOR'	The name of the person or app that initiated the workflow. For example, octocat."
+      - run: echo "GITHUB_REPOSITORY = '$GITHUB_REPOSITORY'	The owner and repository name. For example, octocat/Hello-World."
+      - run: echo "GITHUB_EVENT_NAME = '$GITHUB_EVENT_NAME'	The name of the webhook event that triggered the workflow."
+      - run: echo "GITHUB_EVENT_PATH = '$GITHUB_EVENT_PATH'	The path of the file with the complete webhook event payload. For example, /github/workflow/event.json."
+      - run: echo "GITHUB_WORKSPACE = '$GITHUB_WORKSPACE'	The GitHub workspace directory path. The workspace directory contains a subdirectory with a copy of your repository if your workflow uses the actions/checkout action. If you don't use the actions/checkout action, the directory will be empty. For example, /home/runner/work/my-repo-name/my-repo-name."
+      - run: echo "GITHUB_SHA = '$GITHUB_SHA'	The commit SHA that triggered the workflow. For example, ffac537e6cbbf934b08745a378932722df287a53."
+      - run: echo "GITHUB_REF = '$GITHUB_REF'	The branch or tag ref that triggered the workflow. For example, refs/heads/feature-branch-1. If neither a branch or tag is available for the event type, the variable will not exist."
+      - run: echo "GITHUB_HEAD_REF = '$GITHUB_HEAD_REF'	Only set for forked repositories. The branch of the head repository."
+      - run: echo "GITHUB_BASE_REF = '$GITHUB_BASE_REF'	Only set for forked repositories. The branch of the base repository."
