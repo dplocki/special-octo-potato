@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: "New tag detected!"
         run: echo "TAG = $GITHUB_REF"
+        run: echo "ONLY VERSION=${GITHUB_REF_:9}"
 
       - name: "Getting sources"
         uses: actions/checkout@v2
