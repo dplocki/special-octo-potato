@@ -12,7 +12,7 @@ jobs:
       - name: "New tag detected!"
         run: |
           echo "TAG = $GITHUB_REF"
-          echo "ONLY VERSION=${GITHUB_REF_:19}"
+          echo "ONLY VERSION=${GITHUB_REF:19}"
 
       - name: "Getting sources"
         uses: actions/checkout@v2
