@@ -1,9 +1,11 @@
-name: Show me simple text
+name: Build new version package
 
 on:
   push:
     branches:
       master
+    tags:
+      releases/[1-9]+.[0-9]+.[0-9]+
 
 jobs:
   build_release:
@@ -12,8 +14,15 @@ jobs:
       ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: "Getting the sources"
+        uses: actions/checkout@v2
+
+      - name: "Build"
+        run: |
+          mkdir build
+          cat "${GITHUB_REF:19}" > build/v.txt
+
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: ./examples/*.txt
+          name: "congenial-broccoli-${GITHUB_REF:19}.zip"
+          path: ./build
