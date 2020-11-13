@@ -25,5 +25,5 @@ jobs:
       - name: "Publish"
         uses: actions/upload-artifact@v2
         with:
-          name: "congenial-broccoli-${{ GITHUB_REF:19 }}.zip"
+          name: congenial-broccoli-${{ GITHUB_REF:19 }}.zip
           path: ./build
