@@ -1,4 +1,4 @@
-name: Build new version package
+name: Test of publish
 
 on:
   push:
@@ -22,7 +22,8 @@ jobs:
           mkdir build
           cat "${GITHUB_REF:19}" > build/v.txt
 
-      - uses: actions/upload-artifact@v2
+      - name: "Publish"
+        uses: actions/upload-artifact@v2
         with:
           name: "congenial-broccoli-${GITHUB_REF:19}.zip"
           path: ./build
