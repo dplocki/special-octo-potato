@@ -20,10 +20,10 @@ jobs:
       - name: "Build"
         run: |
           mkdir build
-          echo "${GITHUB_REF:19}" > build/v.txt
+          echo "$GITHUB_REF" > build/v.txt
 
       - name: "Publish"
         uses: actions/upload-artifact@v2
         with:
-          name: congenial-broccoli-${{ GITHUB_REF:19 }}.zip
+          name: congenial-broccoli-$GITHUB_REF:19.zip
           path: ./build
