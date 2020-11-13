@@ -1,4 +1,4 @@
-name: Test of publish
+name: "Test of publish"
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       - name: "Build"
         run: |
           mkdir build
-          cat "${GITHUB_REF:19}" > build/v.txt
+          echo "${GITHUB_REF:19}" > build/v.txt
 
       - name: "Publish"
         uses: actions/upload-artifact@v2
