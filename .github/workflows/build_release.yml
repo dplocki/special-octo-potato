@@ -6,7 +6,7 @@ on:
       v\d+\.\d+\.\d+
 
 jobs:
-  tagged_release:
+  tagged-release:
 
     runs-on:
       ubuntu-latest
