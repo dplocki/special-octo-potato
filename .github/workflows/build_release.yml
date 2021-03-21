@@ -3,7 +3,7 @@ name: Build Release
 on:
   push:
     tags:
-      v*
+      v\d+\.\d+\.\d+
 
 jobs:
   tagged_release:
