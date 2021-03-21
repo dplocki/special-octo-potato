@@ -22,7 +22,7 @@ jobs:
 
       - uses: montudor/action-zip@v0.1.1
         with:
-          args: zip -qq -r ${GITHUB_REF:19}.zip a b
+          args: zip -qq -r "${GITHUB_REF:19}.zip" *.txt
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
