@@ -6,7 +6,7 @@ on:
       v*
 
 jobs:
-  tagged-release:
+  tagged_release:
 
     runs-on:
       ubuntu-latest
