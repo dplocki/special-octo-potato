@@ -20,9 +20,8 @@ jobs:
           echo "a" > a.txt
           echo "b" > b.txt
 
-      - uses: montudor/action-zip@v0.1.1
-        with:
-          args: zip -qq -r "${GITHUB_REF:19}.zip" *.txt
+      - name: "Build Package"
+        run: zip -r "${GITHUB_REF:19}.zip" *.txt
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
