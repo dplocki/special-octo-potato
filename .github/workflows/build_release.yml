@@ -21,7 +21,7 @@ jobs:
           echo "b" > b.txt
 
       - name: "Build Package"
-        run: zip -r "${GITHUB_REF:19}.zip" *.txt
+        run: zip -r ${GITHUB_REF:19}.zip "*.txt"
 
       - name: "Check"
         run: ls -l
