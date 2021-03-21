@@ -19,9 +19,10 @@ jobs:
         run: |
           echo "a" > a.txt
           echo "b" > b.txt
+          echo "${GITHUB_REF#refs/tags/}"
 
       - name: "Build Package"
-        run: zip pesel_generator.zip *.txt
+        run: zip ${GITHUB_REF#refs/tags/}.zip *.txt
 
       - name: "Check"
         run: ls -l
