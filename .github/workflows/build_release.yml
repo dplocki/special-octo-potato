@@ -3,12 +3,13 @@ name: Build Release
 on:
   push:
     tags:
-      - "v*"
+      v*
 
 jobs:
   tagged-release:
-    name: "Tagged Release"
-    runs-on: "ubuntu-latest"
+
+    runs-on:
+      ubuntu-latest
 
     steps:
       - name: "Getting the sources"
