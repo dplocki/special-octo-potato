@@ -1,0 +1,27 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+
+  steps:
+    - name: "Build"
+      run: |
+        echo "a" > a.txt
+        echo "b" > b.txt
+
+    - uses: montudor/action-zip@v0.1.1
+      with:
+        args: zip -qq -r ${GITHUB_REF:19}.zip a b
+  
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: *.zip
