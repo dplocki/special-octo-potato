@@ -11,6 +11,7 @@ This is my blasting field for Github Actions. The place to test workflows, actio
 * The job names must start with a letter or '_' and contain only alphanumeric characters, '-', or '_'
 * You can react on tags without declaring the branch
 * If you have the syntax error in you workflow file, you lose access to history of previous builds for that workflow
+* The workflow must contain at least one job with no dependencies
 
 ## Links
 

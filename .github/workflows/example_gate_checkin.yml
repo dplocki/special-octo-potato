@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   state_check:
+
     runs-on:
       ubuntu-latest
 

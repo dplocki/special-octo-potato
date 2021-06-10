@@ -1,9 +1,9 @@
-name: "Something else"
+name: "Something important"
 
 on: [push]
 
 jobs:
-  state_check:
+  important:
 
     needs:
       state_check
