@@ -13,4 +13,5 @@ jobs:
 
       - name: "Tests"
         run: |
-          [ -s examples/failed_tests.txt  ] || exit 1
+          ! [ -s examples/failed_tests.txt  ] || exit 1
+          echo "All tests pass"
