@@ -16,3 +16,20 @@ jobs:
         run: |
           ! [ -s examples/failed_tests.txt  ] || exit 1
           echo "All tests pass"
+
+  important:
+
+    needs:
+      state_check
+
+    runs-on:
+      ubuntu-latest
+
+    steps:
+      - name: "Getting the sources"
+        uses: actions/checkout@v2
+
+      - name: "Tests"
+        run: |
+          echo "oh, something important!"
+
