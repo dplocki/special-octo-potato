@@ -1,9 +1,13 @@
-name: "State Check"
+name: "Something else"
 
 on: [push]
 
 jobs:
   state_check:
+
+    needs:
+      state_check
+
     runs-on:
       ubuntu-latest
 
