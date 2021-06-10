@@ -1,0 +1,16 @@
+name: "Build"
+
+on: [push]
+
+jobs:
+  state_check:
+    runs-on:
+      ubuntu-latest
+
+    steps:
+      - name: "Getting the sources"
+        uses: actions/checkout@v2
+
+      - name: "Tests"
+        run: |
+          [ -s examples/failed_tests.txt  ] || exit 1
