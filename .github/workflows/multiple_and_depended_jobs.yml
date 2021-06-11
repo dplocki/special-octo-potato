@@ -30,4 +30,4 @@ jobs:
       - name: "Tests"
         run: |
           echo "oh, something important!"
-          ll -l
+          ls -l
