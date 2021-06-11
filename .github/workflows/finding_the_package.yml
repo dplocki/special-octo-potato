@@ -11,9 +11,13 @@ jobs:
       - name: "Getting the sources"
         uses: actions/checkout@v2
 
+      - name: "Set up the NPM"
+        uses: filipstefansson/set-npm-token-action@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
       - name: "Compering version"
         run: |
-          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN} 
           CURRENT_VERSION=`node -p 'require("./examples/package.json").version'`
           LATEST_PACKAGE=`npm info @dplocki/generic-conversation-bot version`
 
@@ -24,5 +28,3 @@ jobs:
           else
               echo "Strings are not equal."
           fi
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
