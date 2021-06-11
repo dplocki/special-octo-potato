@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Getting the sources"
+        uses: actions/checkout@v2
+
+      - name: "Compering version"
       - run: |
           CURRENT_VERSION = `node -p 'require("./examples/package.json").version'`
           LATEST_PACKAGE = `npm info @dplocki/generic-conversation-bot version`
