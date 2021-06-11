@@ -13,8 +13,8 @@ jobs:
 
       - name: "Compering version"
         run: |
-          CURRENT_VERSION = `node -p 'require("./examples/package.json").version'`
-          LATEST_PACKAGE = `npm info @dplocki/generic-conversation-bot version`
+          CURRENT_VERSION=`node -p 'require("./examples/package.json").version'`
+          LATEST_PACKAGE=`npm info @dplocki/generic-conversation-bot version`
 
           echo $CURRENT_VERSION $LATEST_PACKAGE
 
