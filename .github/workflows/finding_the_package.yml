@@ -1,0 +1,11 @@
+name: Checking version
+
+on: push
+
+jobs:
+  get_package_version:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: node -pe 'JSON.parse("examples/package.json").version'
