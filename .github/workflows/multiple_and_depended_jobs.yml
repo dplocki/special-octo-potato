@@ -14,6 +14,7 @@ jobs:
 
       - name: "Tests"
         run: |
+          touch hey.txt
           ! [ -s examples/failed_tests.txt  ] || exit 1
           echo "All tests pass"
 
@@ -26,10 +27,7 @@ jobs:
       ubuntu-latest
 
     steps:
-      - name: "Getting the sources"
-        uses: actions/checkout@v2
-
       - name: "Tests"
         run: |
           echo "oh, something important!"
-
+          ll -l
