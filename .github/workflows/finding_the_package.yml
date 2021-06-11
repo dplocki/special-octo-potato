@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: node -pe 'JSON.parse("examples/package.json").version'
+      - run: node -p 'require("./examples/package.json").version'
