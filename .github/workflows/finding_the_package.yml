@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: "Compering version"
-      - run: |
+        run: |
           CURRENT_VERSION = `node -p 'require("./examples/package.json").version'`
           LATEST_PACKAGE = `npm info @dplocki/generic-conversation-bot version`
 
