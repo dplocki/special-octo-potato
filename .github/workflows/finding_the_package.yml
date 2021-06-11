@@ -13,6 +13,7 @@ jobs:
 
       - name: "Compering version"
         run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN} 
           CURRENT_VERSION=`node -p 'require("./examples/package.json").version'`
           LATEST_PACKAGE=`npm info @dplocki/generic-conversation-bot version`
 
@@ -23,3 +24,5 @@ jobs:
           else
               echo "Strings are not equal."
           fi
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
