@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: "Set up the NPM"
-        uses: filipstefansson/set-npm-token-action@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "@dplocki:registry=https://npm.pkg.github.com" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.TEST_SECRET }}" >> ~/.npmrc
 
       - name: "Compering version"
         run: |
