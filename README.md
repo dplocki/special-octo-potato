@@ -13,6 +13,33 @@ This is my blasting field for Github Actions. The place to test workflows, actio
 * If you have the syntax error in you workflow file, you lose access to history of previous builds for that workflow
 * The workflow must contain at least one job with no dependencies
 
+### Github NPM Packages
+
+There is possibility for publish npm packages directly on Github (as not scoped repository). See [GitHub Packages: Your packages, at home with their code](https://npm.pkg.github.com).
+
+The usage in workflow is described here: [Publishing Node.js packages](https://docs.github.com/en/actions/guides/publishing-nodejs-packages).
+
+Example set-up code:
+
+```yml
+      - name: "Set up the NPM"
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@dplocki'
+```
+
+Later usage:
+
+```yml
+      - name: "Compering version"
+        run: |
+          echo `npm info @dplocki/generic-conversation-bot version`
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
 ## Links
 
 * [GitHub Actions to securely publish npm packages](https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/)
