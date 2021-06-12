@@ -8,10 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Display a secret"
-        run: |
-          echo ${{ secrets.TEST_SECRET }}
-
       - name: "Getting the sources"
         uses: actions/checkout@v2
 
