@@ -18,6 +18,7 @@ jobs:
 
       - name: "Compering version"
         run: |
+          cat ~/.npmrc
           CURRENT_VERSION=`node -p 'require("./examples/package.json").version'`
           LATEST_PACKAGE=`npm info @dplocki/generic-conversation-bot version`
 
