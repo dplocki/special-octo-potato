@@ -25,10 +25,8 @@ jobs:
 
           echo $CURRENT_VERSION $LATEST_PACKAGE
 
-          if [ "$CURRENT_VERSION" = "$LATEST_PACKAGE" ]; then
-              echo "Strings are equal."
-          else
-              echo "Strings are not equal."
+          if ! [ "$CURRENT_VERSION" = "$LATEST_PACKAGE" ]; then
+            echo "Strings are not equal."
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
