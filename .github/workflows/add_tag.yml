@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Git Tag Action
-        uses: hole19/git-tag-action@v1.0
-        env:
-          TAG: v.${ "0.0.1"}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Tag
+        uses: negz/create-tag@v1
+        with:
+          version: v0.1.1
+          message: Release for version v0.1.1
+          token: ${{ secrets.GITHUB_TOKEN }}
