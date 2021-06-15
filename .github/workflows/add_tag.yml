@@ -11,20 +11,22 @@ jobs:
       - name: "Getting the sources"
         uses: actions/checkout@v2
 
-      - name: "Set up the NPM"
+      - name: "Set up the NPM environment"
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@dplocki'
 
-      - id: GetCurrentVersion
-        run: echo "::set-output name=version::"`node -p 'require("./examples/package.json").version'`
-
-      - id: GetLastPackageVersion
+      - name: "Get version of last NPM package"
+        id: GetLastPackageVersion
         run: echo "::set-output name=version::"`npm info @dplocki/generic-conversation-bot version`
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: "Get version from package.json"
+        id: GetCurrentVersion
+        run: echo "::set-output name=version::"`node -p 'require("./examples/package.json").version'`
 
       - name: "Compering version"
         run: |
