@@ -28,20 +28,8 @@ jobs:
         id: GetCurrentVersion
         run: echo "::set-output name=version::"`node -p 'require("./examples/package.json").version'`
 
-      - name: "Compering version"
-        run: |
-          CURRENT_VERSION=${{ steps.GetCurrentVersion.outputs.version }}
-          LATEST_PACKAGE=${{ steps.GetLastPackageVersion.outputs.version }}
-
-          echo $CURRENT_VERSION $LATEST_PACKAGE
-
-          if [ "$CURRENT_VERSION" = "$LATEST_PACKAGE" ]; then
-              echo "No changes in package"
-          else
-              echo "Strings are not equal."
-          fi
-
       - name: Create Tag
+        if: ${{ steps.GetCurrentVersion.outputs.version }} = ${{ steps.GetLastPackageVersion.outputs.version }}
         uses: negz/create-tag@v1
         with:
           version: v${{ steps.GetCurrentVersion.outputs.version }}
