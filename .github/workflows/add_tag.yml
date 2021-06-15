@@ -3,14 +3,45 @@ name: Add tag
 on: push
 
 jobs:
-  add_tag:
+  get_package_version:
 
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Getting the sources"
+        uses: actions/checkout@v2
+
+      - name: "Set up the NPM"
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@dplocki'
+
+      - id: GetCurrentVersion
+        run: echo "::set-output name=version::"`node -p 'require("./examples/package.json").version'`
+
+      - id: GetLastPackageVersion
+        run: echo "::set-output name=version::"`npm info @dplocki/generic-conversation-bot version`
+
+      - name: "Compering version"
+        run: |
+          CURRENT_VERSION=${{ steps.GetCurrentVersion.outputs.version }}
+          LATEST_PACKAGE=${{ steps.GetLastPackageVersion.outputs.version }}
+
+          echo $CURRENT_VERSION $LATEST_PACKAGE
+
+          if [ "$CURRENT_VERSION" = "$LATEST_PACKAGE" ]; then
+              echo "No changes in package"
+          else
+              echo "Strings are not equal."
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create Tag
         uses: negz/create-tag@v1
         with:
-          version: v0.1.1
-          message: Release for version v0.1.1
+          version: v${{ steps.GetCurrentVersion.outputs.version }}
+          message: Release for version v${{ steps.GetCurrentVersion.outputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}

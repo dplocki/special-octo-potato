@@ -40,6 +40,17 @@ Later usage:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
+### Create tag
+
+```yml
+      - name: Create Tag
+        uses: negz/create-tag@v1
+        with:
+          version: v0.1.1
+          message: Release for version v0.1.1
+          token: ${{ secrets.GITHUB_TOKEN }}
+```
+
 ## Links
 
 * [GitHub Actions to securely publish npm packages](https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/)
