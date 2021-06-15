@@ -23,6 +23,8 @@ jobs:
 
       - id: GetLastPackageVersion
         run: echo "::set-output name=version::"`npm info @dplocki/generic-conversation-bot version`
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: "Compering version"
         run: |
@@ -36,8 +38,6 @@ jobs:
           else
               echo "Strings are not equal."
           fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Tag
         uses: negz/create-tag@v1
