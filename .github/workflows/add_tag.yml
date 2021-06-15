@@ -29,7 +29,7 @@ jobs:
         run: echo "::set-output name=version::"`node -p 'require("./examples/package.json").version'`
 
       - name: Create Tag
-        if: ${{ steps.GetCurrentVersion.outputs.version }} = ${{ steps.GetLastPackageVersion.outputs.version }}
+        if: ${{ steps.GetCurrentVersion.outputs.version }} != ${{ steps.GetLastPackageVersion.outputs.version }}
         uses: negz/create-tag@v1
         with:
           version: v${{ steps.GetCurrentVersion.outputs.version }}
