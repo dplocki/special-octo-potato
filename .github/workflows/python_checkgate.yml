@@ -17,7 +17,7 @@ jobs:
           python-version: '3.x'
 
       - name: Installing dependencies
-        run: pip install --upgrade pip black
+        run: pip install --upgrade pip black --quiet
 
       - name: Style check
         run: black examples/ --check 
