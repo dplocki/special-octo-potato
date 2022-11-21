@@ -1,0 +1,23 @@
+name: Run Unit Tests
+
+on:
+  push
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Get sources
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Installing black
+        run: python -m pip black
+
+      - name: Style check
+        run: black examples/ --check 
