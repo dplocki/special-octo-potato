@@ -19,8 +19,5 @@ jobs:
       - name: Installing dependencies
         run: pip install --upgrade pip
 
-      - name: Install module
-        run: pip install -e .
-
       - name: Style check
         run: black examples/ --check 
