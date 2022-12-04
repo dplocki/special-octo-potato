@@ -24,11 +24,11 @@ jobs:
 
       - name: Make the script
         run: cat << EOF > run.py
-from todoist_api_python.api import TodoistAPI
-from tools.random_task import run
+          from todoist_api_python.api import TodoistAPI
+          from tools.random_task import run
 
-api = TodoistAPI(${{ secrets.TODOIST_TOKEN }})
-run(api, "Przydzielone")
-EOF
+          api = TodoistAPI(${{ secrets.TODOIST_TOKEN }})
+          run(api, "Przydzielone")
+          EOF
       - name: Run the script
         run: python run.py
