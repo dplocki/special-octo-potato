@@ -12,6 +12,8 @@ This is my blasting field for Github Actions. The place to test workflows, actio
 * You can react on tags without declaring the branch
 * If you have the syntax error in you workflow file, you lose access to history of previous builds for that workflow
 * The workflow must contain at least one job with no dependencies
+* Cron schedule if containt slash `/` character, needs be in qoutes
+* Schedule task seems to have some delay time to start
 
 ### Github NPM Packages
 
