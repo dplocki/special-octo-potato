@@ -1,0 +1,13 @@
+name: Schedule tester
+
+on:
+  schedule:
+    - cron: */5 * * * *
+
+jobs:
+  make_schedule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run
+        run: echo "Coocku"
