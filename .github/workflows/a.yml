@@ -2,7 +2,7 @@ name: Schedule tester
 
 on:
   schedule:
-    - cron: */5 * * * *
+    - cron: '*/5 * * * *'
 
 jobs:
   make_schedule:
