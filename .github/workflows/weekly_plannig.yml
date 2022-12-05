@@ -1,6 +1,9 @@
 name: Sunday schedule planning
 
 on:
+  push:
+    branches:
+      master
   schedule:
     - cron: 23 23 * * Sun
 
@@ -28,7 +31,7 @@ jobs:
           from todoist_api_python.api import TodoistAPI
           from tools.random_task import run
 
-          api = TodoistAPI(${{ secrets.TODOIST_TOKEN }})
+          api = TodoistAPI('${{ secrets.TODOIST_TOKEN }}')
           run(api, "Przydzielone")
           EOF
 
