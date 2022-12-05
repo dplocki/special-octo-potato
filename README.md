@@ -53,6 +53,17 @@ Later usage:
           token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+## Multiline scripts in YML
+
+```yml
+  run: |
+    cat << EOF > run.py
+    echo line 1
+    echo line 2
+    ; no indents on each of this lines
+    EOF
+```
+
 ## Links
 
 * [GitHub Actions to securely publish npm packages](https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/)
