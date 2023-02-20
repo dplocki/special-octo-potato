@@ -20,4 +20,4 @@ jobs:
         run: pip install --upgrade pip black --quiet
 
       - name: Style check
-        run: black examples/ --check 
+        run: black examples/ --check
