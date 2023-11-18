@@ -4,16 +4,16 @@ This is my blasting field for Github Actions. The place to test workflows, actio
 
 ## Notes
 
-* Official help for [Github Action](https://help.github.com/en/actions)
-* Cannot use `alpine` image as `runs-on`
-  * The only available options can be found on the page: [Virtual environments for GitHub-hosted runners](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners)
-  * You can use docker image
-* The job names must start with a letter or '_' and contain only alphanumeric characters, '-', or '_'
-* You can react on tags without declaring the branch
-* If you have the syntax error in you workflow file, you lose access to history of previous builds for that workflow
+* Official help for [GitHub Actions](https://help.github.com/en/actions)
+* You cannot use the `alpine` image as `runs-on`
+  * The only available options can be found on the page: [Virtual Environments for GitHub-hosted Runners](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners)
+  * You can use a Docker image
+* Job names must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`
+* You can react to tags without declaring the branch
+* If you have a syntax error in your workflow file, you lose access to the history of previous builds for that workflow
 * The workflow must contain at least one job with no dependencies
-* Cron schedule if containt slash `/` character, needs be in qoutes
-* Schedule task seems to have some delay time to start
+* If the cron schedule contains a slash `/` character, it needs to be in quotes
+* Scheduled tasks seem to have some delay in starting
 
 ### Github NPM Packages
 
