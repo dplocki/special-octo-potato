@@ -24,8 +24,5 @@ jobs:
       - name: Installing dependencies
         run: pip install --upgrade pip pytest pytest-httpserver --quiet
 
-      - name: Install module
-        run: pip install -e .
-
       - name: Running tests
         run: pytest e2e
