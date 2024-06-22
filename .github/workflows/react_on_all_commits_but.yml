@@ -3,7 +3,7 @@ name: React on each commit expect with prefix
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
