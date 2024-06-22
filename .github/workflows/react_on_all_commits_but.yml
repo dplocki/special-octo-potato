@@ -1,0 +1,22 @@
+name: React on each commit expect with prefix
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for prefix in commit messages
+        id: check_prefix
+        run: |
+          PREFIX="prefix"
+          git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
+          echo "::set-output name=prefix_found::${PIPESTATUS[1]}"
+
+      - name: Build and Test
+        if: steps.check_prefix.outputs.prefix_found == '0'
+        run: |
+          echo "work!"
