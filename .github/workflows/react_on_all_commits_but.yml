@@ -8,7 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+
+      - name: "Getting the sources"
+        uses: actions/checkout@v4
+
       - name: Check for prefix in commit messages
         id: check_prefix
         run: |
