@@ -21,6 +21,7 @@ jobs:
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
           if git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"; then
             echo "prefix_found=0" >> $GITHUB_OUTPUT
+            exit 0
           else
             echo "prefix_found=1" >> $GITHUB_OUTPUT
             exit 0
