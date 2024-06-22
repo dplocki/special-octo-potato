@@ -21,15 +21,14 @@ jobs:
           trap 'echo "An error occurred. Handling it."; exit 0' ERR
           PREFIX="prefix"
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
+          echo "prefix_found=0" >> $GITHUB_OUTPUT
           if git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"; then
-            echo "prefix_found=0" >> $GITHUB_OUTPUT
-            exit 0
-          else
             echo "prefix_found=1" >> $GITHUB_OUTPUT
-            exit 0
+          else
+            echo "prefix_found=0" >> $GITHUB_OUTPUT
           fi
 
       - name: Build and Test
-        if: steps.check_prefix.outputs.prefix_found == '0'
+        if: steps.check_prefix.outputs.prefix_found == '1'
         run: |
           echo "work!"
