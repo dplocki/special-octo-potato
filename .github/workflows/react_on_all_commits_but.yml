@@ -19,7 +19,11 @@ jobs:
         run: |
           PREFIX="prefix"
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
-          echo "prefix_found=${PIPESTATUS[1]}" >> $GITHUB_OUTPUT
+          if git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"; then
+            echo "prefix_found=0" >> $GITHUB_OUTPUT
+          else
+            echo "prefix_found=1" >> $GITHUB_OUTPUT
+          fi
 
       - name: Build and Test
         if: steps.check_prefix.outputs.prefix_found == '0'
