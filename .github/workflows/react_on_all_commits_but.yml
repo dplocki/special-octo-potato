@@ -18,15 +18,10 @@ jobs:
         id: check_prefix
         run: |
           set -e  # Enable exit on error
-          trap 'echo "An error occurred. Handling it."; exit 0' ERR
+          trap 'exit 0' ERR
           PREFIX="prefix"
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
-          echo "prefix_found=0" >> $GITHUB_OUTPUT
-          if git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"; then
-            echo "prefix_found=1" >> $GITHUB_OUTPUT
-          else
-            echo "prefix_found=0" >> $GITHUB_OUTPUT
-          fi
+          echo "prefix_found=1" >> $GITHUB_OUTPUT
 
       - name: Build and Test
         if: steps.check_prefix.outputs.prefix_found == '1'
