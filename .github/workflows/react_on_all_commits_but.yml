@@ -23,7 +23,7 @@ jobs:
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
           echo "prefix_found=1" >> $GITHUB_OUTPUT
 
-      - name: Build and Test
+      - name: React on value
         if: steps.check_prefix.outputs.prefix_found == '1'
         run: |
           echo "work!"
