@@ -14,6 +14,7 @@ This is my blasting field for Github Actions. The place to test workflows, actio
 * The workflow must contain at least one job with no dependencies
 * If the cron schedule contains a slash `/` character, it needs to be in quotes
 * Scheduled tasks seem to have some delay in starting
+* The difference between `github.ref_name` and `GITHUB_REF` while dealing with tag: one return only the tag name, the other the full tag name (with prefix)
 
 ### Github NPM Packages
 
