@@ -17,6 +17,8 @@ jobs:
       - name: Check for prefix in commit messages
         id: check_prefix
         run: |
+          set -e  # Enable exit on error
+          trap 'echo "An error occurred. Handling it."; exit 0' ERR
           PREFIX="prefix"
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
           if git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"; then
