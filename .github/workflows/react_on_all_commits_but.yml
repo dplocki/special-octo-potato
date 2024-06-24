@@ -21,8 +21,14 @@ jobs:
           PREFIX="prefix"
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
           echo "prefix_found=1" >> $GITHUB_OUTPUT
+          echo "work!" > a.txt
 
       - name: React on value
+        uses: EndBug/add-and-commit@v9
         if: steps.check_prefix.outputs.prefix_found == '1'
-        run: |
-          echo "work!"
+        with:
+          author_name: Your Name
+          author_email: mail@example.com
+          message: 'Your commit message'
+          add: 'a.txt'
+
