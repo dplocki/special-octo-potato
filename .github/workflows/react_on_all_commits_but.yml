@@ -20,6 +20,7 @@ jobs:
         run: |
           PREFIX="prefix"
           git log --format=%B -n 1 $GITHUB_SHA | grep -q "^$PREFIX"
+          echo "prefix_found=1" >> $GITHUB_OUTPUT
 
       - name: Prepare Node
         uses: actions/setup-node@v4
