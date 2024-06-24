@@ -31,17 +31,18 @@ jobs:
       - name: Build README.md
         if: steps.check_prefix.outputs.prefix_found == '1'
         run: |
-          cd build
-          npm ci
-          node build_readme.js > ../tmp.md
-          cd ..
+          pushd build
+            npm ci
+            node build_readme.js > ../tmp.md
+          popd
+
           mv tmp.md README.md
 
-      - name: React on value
+      - name: Push the changes
         uses: EndBug/add-and-commit@v9
         if: steps.check_prefix.outputs.prefix_found == '1'
         with:
-          author_name: 🤖 ReadmeGenerator
+          author_name: 🤖 CompileBot
           author_email: readmegenerator@github.com
           message: 'chore: update README.md'
           add: 'README.md'
