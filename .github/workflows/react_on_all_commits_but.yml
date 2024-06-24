@@ -31,12 +31,14 @@ jobs:
       - name: Build README.md
         if: steps.check_prefix.outputs.prefix_found == '1'
         run: |
+          tmpfile=$(mktemp)
+
           pushd build
             npm ci
-            node build_readme.js > ../tmp.md
+            node build_readme.js > "$tmpfile"
           popd
 
-          mv tmp.md README.md
+          mv "$tmpfile" README.md
 
       - name: Push the changes
         uses: EndBug/add-and-commit@v9
