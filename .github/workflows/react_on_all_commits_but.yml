@@ -29,6 +29,7 @@ jobs:
           node-version: 20
 
       - name: Build README.md
+        if: steps.check_prefix.outputs.prefix_found == '1'
         run: |
           cd build
           npm ci
