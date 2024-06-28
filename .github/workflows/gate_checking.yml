@@ -1,0 +1,26 @@
+name: Reject Bad Commits
+
+on: push
+
+jobs:
+  check-commit-messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Check commit messages
+        run: |
+          # Get the commit messages of the push
+          commit_messages=$(git log --format=%B --no-merges HEAD^..HEAD)
+
+          # Define the commit message patterns to reject
+          forbidden_patterns=("fix typo" "temporary")
+
+          # Check each commit message
+          for pattern in "${forbidden_patterns[@]}"; do
+            if echo "$commit_messages" | grep -i -q "$pattern"; then
+              echo "Commit message contains forbidden pattern: $pattern"
+              exit 1
+            fi
+          done
